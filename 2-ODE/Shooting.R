@@ -1,8 +1,11 @@
 
+# final time for boundary value problem
 TIME <- 3
+# number of euler steps
 STEPS <- 5000
 h <- 3/STEPS
 
+# sequence of different s values
 S <- seq(-12,-7,0.01)
 
 error <- array()
@@ -25,7 +28,9 @@ for( s in S ){
   
   }
   
+  # plot one trajectory
   #plot( seq(0,TIME,h) , z1 , type = 'l')
+  # print end point
   #print(z1[STEPS])
   
   e <- exp(-30) - z1[STEPS]
@@ -35,11 +40,11 @@ for( s in S ){
 
 }
 
-## Plot S vs. Error
+# Plot S vs. Error
 
 plot( S , error , type = 'l')
 
-## Choose best parameter S
+# Choose best parameter S
 
 best_s <- which.min(abs(error))
 S[best_s]
